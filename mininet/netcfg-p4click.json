@@ -1,0 +1,44 @@
+{
+  "devices": {
+    "device:frankfurt": {
+      "basic": {
+        "managementAddress": "grpc://mininet:50001?device_id=1",
+        "driver": "stratum-bmv2",
+        "pipeconf": "click.p4.dtu_ehu.aclhandler",
+        "locType": "grid",
+        "gridX": 500,
+        "gridY": 500
+      }
+    },
+    "device:milan": {
+      "basic": {
+        "managementAddress": "grpc://mininet:50002?device_id=1",
+        "driver": "stratum-bmv2",
+        "pipeconf": "click.p4.dtu_ehu.aclhandler",
+        "locType": "grid",
+        "gridX": 500,
+        "gridY": 800
+      }
+    },
+    "device:paris": {
+      "basic": {
+        "managementAddress": "grpc://mininet:50003?device_id=1",
+        "driver": "stratum-bmv2",
+        "pipeconf": "click.p4.dtu_ehu.aclhandler",
+        "locType": "grid",
+        "gridX": 200,
+        "gridY": 600
+      }
+    },
+    "device:stockholm": {
+      "basic": {
+        "managementAddress": "grpc://mininet:50004?device_id=1",
+        "driver": "stratum-bmv2",
+        "pipeconf": "click.p4.dtu_ehu.aclhandler",
+        "locType": "grid",
+        "gridX": 900,
+        "gridY": 200
+      }
+    }
+  }
+}

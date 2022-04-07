@@ -1,0 +1,168 @@
+{
+  "devices": {
+    "device:frankfurt": {
+      "basic": {
+        "managementAddress": "grpc://mininet:50001?device_id=1",
+        "driver": "stratum-bmv2",
+        "pipeconf": "click.p4.dtu_ehu.aclhandler",
+        "locType": "grid",
+        "gridX": 450,
+        "gridY": 400
+      }
+    },
+    "device:milan": {
+      "basic": {
+        "managementAddress": "grpc://mininet:50002?device_id=1",
+        "driver": "stratum-bmv2",
+        "pipeconf": "click.p4.dtu_ehu.aclhandler",
+        "locType": "grid",
+        "gridX": 600,
+        "gridY": 150
+      }
+    },
+    "device:paris": {
+      "basic": {
+        "managementAddress": "grpc://mininet:50003?device_id=1",
+        "driver": "stratum-bmv2",
+        "pipeconf": "click.p4.dtu_ehu.aclhandler",
+        "locType": "grid",
+        "gridX": 300,
+        "gridY": 250
+      }
+    },
+    "device:stockholm": {
+      "basic": {
+        "managementAddress": "grpc://mininet:50004?device_id=1",
+        "driver": "stratum-bmv2",
+        "pipeconf": "click.p4.dtu_ehu.aclhandler",
+        "locType": "grid",
+        "gridX": 700,
+        "gridY": 600
+      }
+    }
+  },
+  "ports": {
+    "device:frankfurt/2": {
+      "interfaces": [
+        {
+          "name": "fr_pa-2"
+        }
+      ]
+    },
+    "device:frankfurt/3": {
+      "interfaces": [
+        {
+          "name": "fr_st-3"
+        }
+      ]
+    },
+    "device:frankfurt/1": {
+      "interfaces": [
+        {
+          "name": "fr_mi-1"
+        }
+      ]
+    },
+    "device:paris/1": {
+      "interfaces": [
+        {
+          "name": "pa_fr-1"
+        }
+      ]
+    },
+    "device:milan/2": {
+      "interfaces": [
+        {
+          "name": "mi_st-2"
+        }
+      ]
+    },
+    "device:milan/1": {
+      "interfaces": [
+        {
+          "name": "mi_fr-1"
+        }
+      ]
+    },
+    "device:stockholm/2": {
+      "interfaces": [
+        {
+          "name": "st_mi-2"
+        }
+      ]
+    },
+    "device:stockholm/1": {
+      "interfaces": [
+        {
+          "name": "st_fr-1"
+        }
+      ]
+    }
+  },
+  "hosts": {
+    "00:00:00:00:00:1A/None": {
+      "basic": {
+        "name": "h1-fr",
+        "locType": "grid",
+        "gridX": 440,
+        "gridY": 450
+      }
+    },
+    "00:00:00:00:00:1B/None": {
+      "basic": {
+        "name": "h2-fr",
+        "locType": "grid",
+        "gridX": 460,
+        "gridY": 450
+      }
+    },
+    "00:00:00:00:00:2A/None": {
+      "basic": {
+        "name": "h3-pa",
+        "locType": "grid",
+        "gridX": 250,
+        "gridY": 260
+      }
+    },
+    "00:00:00:00:00:2B/None": {
+      "basic": {
+        "name": "h4-pa",
+        "locType": "grid",
+        "gridX": 250,
+        "gridY": 240
+      }
+    },
+    "00:00:00:00:00:3A/None": {
+      "basic": {
+        "name": "h5-mi",
+        "locType": "grid",
+        "gridX": 590,
+        "gridY": 125
+      }
+    },
+    "00:00:00:00:00:3B/None": {
+      "basic": {
+        "name": "h5-mi",
+        "locType": "grid",
+        "gridX": 610,
+        "gridY": 125
+      }
+    },
+    "00:00:00:00:00:4A/None": {
+      "basic": {
+        "name": "h6-st",
+        "locType": "grid",
+        "gridX": 690,
+        "gridY": 610
+      }
+    },
+    "00:00:00:00:00:4B/None": {
+      "basic": {
+        "name": "h6-st",
+        "locType": "grid",
+        "gridX": 710,
+        "gridY": 610
+      }
+    }
+  }
+}

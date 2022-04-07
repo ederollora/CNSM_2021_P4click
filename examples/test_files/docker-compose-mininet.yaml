@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  mininet:
+    image: opennetworking/ngsdn-tutorial:stratum_bmv2
+    hostname: mininet
+    container_name: mininet
+    privileged: true
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - /tmp/deploy:/tmp
+    ports:
+      - "50001:50001"
+      - "50002:50002"
+      - "50003:50003"
+      - "50004:50004"
+    entrypoint: "/tmp/${TOPOLOGY_PY}"
