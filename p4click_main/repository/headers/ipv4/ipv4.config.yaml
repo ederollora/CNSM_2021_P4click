@@ -1,0 +1,53 @@
+---
+name: ipv4
+default: ACCEPT
+parser: parser_ipv4
+fields:
+  - name: version
+    bitwidth: 4
+    type: bit
+  - name: ihl
+    bitwidth: 4
+    type: bit
+  - name: dscp
+    bidwidth: 6
+    type: bit
+  - name: ecn
+    bidwidth: 2
+    type: bit
+  - name: totalLength
+    bidwidth: 16
+    type: bit
+  - name: identification
+    bidwidth: 16
+    type: bit
+  - name: flags
+    bidwidth: 3
+    type: bit
+  - name: fragOffset
+    bidwidth: 13
+    type: bit
+  - name: ttl
+    bidwidth: 8
+    type: bit
+  - name: protocol
+    bidwidth: 8
+    type: bit
+  - name: hdrChecksum
+    bidwidth: 16
+    type: bit
+  - name: srcAddr
+    bidwidth: 32
+    type: bit
+  - name: dstAddr
+    bidwidth: 32
+    type: bit
+transition:
+  - field: etherType
+    header: ethernet
+    value_type: hex
+    value: 0x0800
+    type: conditional
+    from_state: parse_ethernet
+extract:
+  variable: false

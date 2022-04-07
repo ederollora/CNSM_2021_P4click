@@ -1,0 +1,5 @@
+---
+constants:
+  - name: TYPE_IPV4
+    size: 16
+    value: 0x0800

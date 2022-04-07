@@ -1,0 +1,52 @@
+---
+name: int_meta
+default: ACCEPT
+parser: parse_int_meta
+fields:
+  - name: ver
+    bitwidth: 4
+    type: bit
+  - name: rep
+    bitwidth: 2
+    type: bit
+  - name: c
+    bidwidth: 1
+    type: bit
+  - name: e
+    bidwidth: 1
+    type: bit
+  - name: m
+    bitwidth: 1
+    type: bit
+  - name: rsvd1
+    bitwidth: 7
+    type: bit
+  - name: rsvs2
+    bidwidth: 3
+    type: bit
+  - name: hop_metadata_len
+    bidwidth: 5
+    type: bit
+  - name: remaining_hop_cnt
+    bitwidth: 8
+    type: bit
+  - name: instruction_mask_0003
+    bitwidth: 4
+    type: bit
+  - name: instruction_mask_0407
+    bidwidth: 4
+    type: bit
+  - name: instruction_mask_0811
+    bidwidth: 4
+    type: bit
+  - name: instruction_mask_1215
+    bidwidth: 4
+    type: bit
+  - name: rsvd3
+    bidwidth: 16
+    type: bit
+transition:
+  - type: direct
+    from_state: parse_int_shim
+extract:
+  variable: false

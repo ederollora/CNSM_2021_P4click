@@ -1,0 +1,72 @@
+---
+headers:
+  - type: struct
+    headerType: ethernet
+    fields:
+      - name: dstAddr
+        bitwidth: macAddr_t
+      - name: srcAddr
+        bitwidth: macAddr_t
+      - name: etherType
+        bitwidth: 16
+    statements:
+      - ethernet
+  - type: struct
+    headerType: ipv4
+    fields:
+      - name: version
+        bitwidth: 4
+      - name: ihl
+        bitwidth: 4
+      - name: diffServ
+        bitwidth: 8
+      - name: totalLen
+        bitwidth: 16
+      - name: identification
+        bitwidth: 16
+      - name: flags
+        bitwidth: 3
+      - name: fragOffset
+        bitwidth: 13
+      - name: ttl
+        bitwidth: 8
+      - name: protocol
+        bitwidth: 8
+      - name: hdrChecksum
+        bitwidth: 16
+      - name: srcAddr
+        bitwidth: ip4Addr_t
+      - name: dstAddr
+        bitwidth: ip4Addr_t
+    statements:
+      - ipv4
+parsingStates:
+  - name: start
+    extract: null
+    onHeader: null
+    onField: null
+    transition: direct
+    default:
+      name: parse_ethernet
+  - name: parse_ethernet
+    extract: ethernet
+    onHeader: ethernet
+    onField: etherType
+    transition: conditional
+    nextStates:
+    - name: parse_ipv4
+      onValue: "0x0800"
+      onValueType: hex
+      constant: false
+    default:
+      name: accept
+  - name: parse_ipv4
+    extract: ipv4
+    onHeader: null
+    onField: null
+    transition: direct
+    default:
+      name: accept
+deparser:
+  - ethernet
+  - ipv4

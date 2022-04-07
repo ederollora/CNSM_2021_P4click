@@ -1,0 +1,129 @@
+#Commands to support in the future
+
+p4click > create deployment mydeployment
+p4click > use deployment mydeployment
+p4click/mydeployment > create switch switch1
+p4click/mydeployment > use switch switch1
+../mydeployment/switch1 > set model v1model
+../mydeployment/switch1 > set target bmv2
+../mydeployment/switch1 > add module l2forwarding
+../mydeployment/switch1 > show modules
+features:
+- l2forwarding
+../mydeployment/switch1 > add module aclhandler
+../mydeployment/switch1 > add module l3forwarding
+../mydeployment/switch1 > show modules
+features:
+- l3forwarding
+- l2forwarding
+- aclhandler
+../mydeployment/switch1 > set pipeline-order l2forwarding,l3forwarding,aclhandler
+in -> l2forwarding -> l3forwarding -> aclhandler -> output
+../mydeployment/switch1 > build data plane ... OK
+../mydeployment/switch1 > exit
+
+#Same as
+p4click > default config
+s1> build data plane
+
+#Future release
+
+p4click/mydeployment > create machine vm1
+p4click/mydeployment > use machine vm1
+../mydeployment/vm1 > set address 134.122.60.230:22
+../mydeployment/vm1 > set ssh user eoza
+../mydeployment/vm1 > set ssh auth pka
+../mydeployment/vm1 > set ssh keypath /home/p4/ks/test/public /home/p4/ks/test/private
+../mydeployment/vm1 > test
+../mydeployment/vm1 > create controller onos 2.1.0 onos1
+../mydeployment/vm1 > use controller onos1
+../../vm1/onos1 > disable cluster
+../../vm1/onos1 > enable exposed_ports
+../../vm1/onos1 > add app l2forwarding
+../../vm1/onos1 > exit
+../mydeployment/vm1 > deploy
+p4click/mydeployment >
+- ONOS controller (onos1) ... OK
+- Switch (switch1) ... OK
+- Pairing ... OK
+- Pushing P4 code ... OK
+- Available REST interfaces:
+ * 2.2.2.2:8181/onos/l2forwarding, see API at:
+ * 2.2.2.2:8181/onos/l3forwarding, see API at:
+
+
+#Ideas
+
+tool:
+  create
+    deployment
+      {name}
+  use
+    deployment
+      {deployment-name}
+  deploy
+
+deployment:
+  create
+    machine
+      {name}
+    switch
+      {name}
+  use
+     machine
+      {name}
+    switch
+      {name}
+  exit
+
+machine:
+  create
+    controller
+      {controller-type}
+        {controller-version}
+          {controller-name}
+  set
+    address
+      {ip,port}
+    ssh
+      auth
+        {pka/password}
+      keypath
+        {path/public} {path/private}
+      user
+        {username}
+  use
+    controller
+      {controller-name}
+  exit
+
+
+exit
+exit
+
+controller:
+  add
+    app
+      {name}
+  disable
+    {feature}
+  enable
+    {feature}
+  test
+  exit
+
+
+switch:
+  add
+    module
+      {module-name}
+  set
+    model
+      {model-name}
+  show
+    modules
+  build
+    dataplane
+  export
+    p4-code
+      {path}

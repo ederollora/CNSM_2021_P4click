@@ -1,0 +1,18 @@
+{
+  "BMv2" : {
+    "name" : "V1Model",
+    "id" : "v1model"
+  },
+  "NetFPGA SUME" : {
+    "name" : "SimpleSumeSwitch",
+    "id" : "sume"
+  },
+  "Netronome Agilio CX 2x10GbE (NFP-4000)": {
+    "name" : "V1Model",
+    "id" : "v1model"
+  },
+  "EdgeCore Wedge 100BF-32X" : {
+    "name" : "Tofino Native Architecture",
+    "id" : "tna"
+  }
+}

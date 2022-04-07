@@ -1,0 +1,16 @@
+---
+include:
+  name:
+    - aclhandler.code.p4
+integrate:
+  - logic: aclhandler.code.p4
+    block: IngressImpl
+    controlName: Aclhandler_ing
+    callControl: True
+    arguments:
+      - type: headers_t
+        name: hdr
+      - type: local_metadata_t
+        name: local_metadata
+      - type: standard_metadata_t
+        name: standard_metadata

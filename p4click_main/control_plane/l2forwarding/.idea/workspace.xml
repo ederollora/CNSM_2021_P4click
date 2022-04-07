@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c342bb4f-029e-4659-888d-464e99b48fd3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/AppConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/Ipv6RoutingComponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/L2BridgingComponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/MainComponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/NdpReplyComponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/Srv6Component.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/cli/Srv6ClearCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/cli/Srv6InsertCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/cli/Srv6SidCompleter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/cli/package-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/common/FabricDeviceConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/common/Utils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/pipeconf/InterpreterImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/pipeconf/PipeconfLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/src/main/java/org/onosproject/ngsdn/tutorial/pipeconf/PipelinerImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../p4src/main.p4" beforeDir="false" afterPath="$PROJECT_DIR$/../../p4src/main.p4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../p4src/snippets.p4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../util/mn-pcap" beforeDir="false" afterPath="$PROJECT_DIR$/../../util/mn-pcap" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1tkkjkBgq3KrMeASafHCM4Ni99p" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c342bb4f-029e-4659-888d-464e99b48fd3" name="Default Changelist" comment="" />
+      <created>1623320611933</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623320611933</updated>
+      <workItem from="1623320614860" duration="2324000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+</project>

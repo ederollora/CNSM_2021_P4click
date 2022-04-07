@@ -1,0 +1,4 @@
+---
+typedefs:
+  - name: macAddr_t
+    size: 48

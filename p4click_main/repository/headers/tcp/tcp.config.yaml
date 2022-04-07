@@ -1,0 +1,51 @@
+---
+name: tcp
+default: ACCEPT
+parser: parse_tcp
+fields:
+  - name: srcPort
+    bitwidth: 16
+    type: bit
+  - name: dstPort
+    bitwidth: 16
+    type: bit
+  - name: seqNo
+    bidwidth: 32
+    type: bit
+  - name: ackNo
+    bidwidth: 32
+    type: bit
+  - name: dataOffset
+    bitwidth: 4
+    type: bit
+  - name: res
+    bitwidth: 3
+    type: bit
+  - name: ecn
+    bidwidth: 3
+    type: bit
+  - name: crtl
+    bidwidth: 6
+    type: bit
+  - name: window
+    bidwidth: 16
+    type: bit
+  - name: checksum
+    bidwidth: 16
+    type: bit
+  - name: urgentPtr
+    bidwidth: 16
+    type: bit
+transition:
+  - field: protocol
+    header: ipv4
+    value_type: hex
+    value: 0x06
+    from_state: parse_ipv4
+  - field: nextHeader
+    header: ipv6
+    value_type: hex
+    value: 0x06
+    from_state: parse_ipv6
+extract:
+  variable: false

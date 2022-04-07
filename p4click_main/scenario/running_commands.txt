@@ -1,0 +1,15 @@
+
+
+# start and stop Mininet and ONOS
+make stop
+make start-p4click
+
+# timing the functions
+echo $(($(date +%s%N)/1000000))
+
+# Script to get time
+#!/bin/bash
+ts=$(date +%s%N)
+$@
+echo $((($(date +%s%N) - $ts)/1000000))
+

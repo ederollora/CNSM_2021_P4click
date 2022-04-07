@@ -1,0 +1,103 @@
+---
+Name: V1Model
+SwitchName: V1Switch
+Pipeline: [ParserImpl, VerifyChecksumImpl, IngressImpl, EgressImpl, ComputeChecksumImpl, DeparserImpl]
+DefaultLibraries: [core.p4, v1model.p4]
+IntrinsicMetadata: {}
+UserMetadata:
+  - name: local_metadata
+    type: local_metadata_t
+ProgrammableBlocks:
+  - name: ParserImpl
+    type: parser
+    filename: parser
+    code: parser.code.p4
+    hasApply: False
+    abstraction: parser
+    parameters:
+      - name: packet
+        type: packet_in
+      - name: hdr
+        type: headers_t
+        direction: out
+      - name: local_metadata
+        type: local_metadata_t
+        direction: inout
+      - name: standard_metadata
+        type: standard_metadata_t
+        direction: inout
+  - name: VerifyChecksumImpl
+    type: control
+    filename: verify_checksum
+    code: verify_chk.code.p4
+    hasApply: True
+    abstraction: verifyChk
+    parameters:
+      - name: hdr
+        type: headers_t
+        direction: inout
+      - name: local_metadata
+        type: local_metadata_t
+        direction: inout
+  - name: IngressImpl
+    type: control
+    filename: ingress
+    code: ingress.code.p4
+    hasApply: True
+    abstraction: ingressMau
+    parameters:
+      - name: hdr
+        type: headers_t
+        direction: inout
+      - name: local_metadata
+        type: local_metadata_t
+        direction: inout
+      - name: standard_metadata
+        type: standard_metadata_t
+        direction: inout
+  - name: EgressImpl
+    type: control
+    filename: egress
+    code: egress.code.p4
+    hasApply: True
+    abstraction: egressMau
+    parameters:
+      - name: hdr
+        type: headers_t
+        direction: inout
+      - name: local_metadata
+        type: local_metadata_t
+        direction: inout
+      - name: standard_metadata
+        type: standard_metadata_t
+        direction: inout
+  - name: ComputeChecksumImpl
+    type: control
+    filename: compute_checksum
+    code: compute_chk.code.p4
+    hasApply: True
+    abstraction: computeChk
+    parameters:
+      - name: hdr
+        type: headers_t
+        direction: inout
+      - name: local_metadata
+        type: local_metadata_t
+        direction: inout
+  - name: DeparserImpl
+    type: control
+    filename: deparser
+    code: deparser.code.p4
+    hasApply: True
+    abstraction: deparser
+    parameters:
+      - name: packet
+        type: packet_out
+      - name: hdr
+        type: headers_t
+        direction: in
+HeaderModelConfig:
+  type: headers_t
+  name: headers
+Main:
+  filename: main

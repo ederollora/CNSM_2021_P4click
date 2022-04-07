@@ -1,0 +1,19 @@
+
+
+#!/bin/bash
+
+container=$(sudo docker ps | grep mininet | head -n 1 | awk '{print $1}')
+pid=$(docker inspect -f '{{.State.Pid}}' ${container})
+mkdir -p /var/run/netns/
+sudo mkdir -p /var/run/netns/
+sudo ln -sfT /proc/$pid/ns/net /var/run/netns/$container
+ip netns ${container}
+sudo ip netns exec "${container}" ip -s link show eth0
+
+
+sudo ip link add veth-mn-host type veth peer name veth-mn-netns
+sudo ip link set veth-mn-netns netns "${container}"
+sudo ip netns exec ${container} ip link set veth-mn-netns up
+sudo ip link set veth-mn-host up
+
+ip link add name br0 type bridge

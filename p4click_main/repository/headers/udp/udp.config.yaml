@@ -1,0 +1,32 @@
+---
+name: udp
+default: ACCEPT
+parser: parse_udp
+fields:
+  - name: srcPort
+    bitwidth: 16
+    type: bit
+  - name: dstPort
+    bitwidth: 16
+    type: bit
+  - name: len
+    bidwidth: 16
+    type: bit
+  - name: chekcsum
+    bidwidth: 16
+    type: bit
+transition:
+  - field: protocol
+    header: ipv4
+    value_type: hex
+    value: 0x11
+    type: conditional
+    from_state: parse_ipv4
+  - field: nextHeader
+    header: ipv6
+    value_type: hex
+    value: 0x11
+    type: conditional
+    from_state: parse_ipv6
+extract:
+  variable: false

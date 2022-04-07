@@ -1,0 +1,68 @@
+---
+headers:
+  - type: struct
+    headerType: cpu_out_header
+    annotation:
+      type: controller_header
+      name: packet_out
+    fields:
+      - name: egress_port
+        bitwidth: port_t
+      - name: _pad
+        bitwidth: 7
+    statements:
+      - cpu_out
+  - type: struct
+    headerType: cpu_in_header
+    annotation:
+      type: controller_header
+      name: packet_in
+    fields:
+      - name: ingress_port
+        bitwidth: port_t
+      - name: _pad
+        bitwidth: 7
+    statements:
+      - cpu_in
+  - type: struct
+    headerType: ethernet
+    fields:
+      - name: dstAddr
+        bitwidth: macAddr_t
+      - name: srcAddr
+        bitwidth: macAddr_t
+      - name: etherType
+        bitwidth: 16
+    statements:
+      - ethernet
+parsingStates:
+  - name: start
+    extract: null
+    isMeta: True
+    onHeader: standard_metadata
+    onField: ingress_port
+    transition: conditional
+    nextStates:
+      - name: parse_packet_out
+        onValue: CPU_PORT
+        onValueType: null
+        constant: true
+    default:
+      name: parse_ethernet
+  - name: parse_packet_out
+    extract: cpu_out
+    onHeader: null
+    onField: null
+    transition: direct
+    default:
+      name: parse_ethernet
+  - name: parse_ethernet
+    extract: ethernet
+    onHeader: null
+    onField: null
+    transition: direct
+    default:
+      name: accept
+deparser:
+  - cpu_in
+  - ethernet

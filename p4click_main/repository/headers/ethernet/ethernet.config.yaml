@@ -1,0 +1,22 @@
+---
+name: ethernet
+default: ACCEPT
+parser: parse_ethernet
+fields:
+  - name: dstAddr
+    bitwidth: 48
+    type: bit
+  - name: srcAddr
+    bitwidth: 48
+    type: bit
+  - name: etherType
+    bidwidth: 16
+    type: bit
+transition:
+  - field: START
+    type: direct
+extract:
+  variable: false
+
+
+

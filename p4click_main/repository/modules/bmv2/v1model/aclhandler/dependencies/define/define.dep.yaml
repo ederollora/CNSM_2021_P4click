@@ -1,0 +1,4 @@
+---
+defines:
+  - name: CPU_PORT
+    value: 255

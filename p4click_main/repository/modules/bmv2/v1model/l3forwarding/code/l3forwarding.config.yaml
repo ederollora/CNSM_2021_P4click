@@ -1,0 +1,22 @@
+---
+include:
+  name:
+    - l3forwarding.code.p4
+    - l3forwarding_chk.code.p4
+integrate:
+  - logic: l3forwarding.code.p4
+    block: IngressImpl
+    controlName: L3forwarding_ing
+    callControl: True
+    arguments:
+      - type: headers_t
+        name: hdr
+      - type: local_metadata_t
+        name: local_metadata
+      - type: standard_metadata_t
+        name: standard_metadata
+  - logic: l3forwarding_chk.code.p4
+    block: ComputeChecksumImpl
+    controlName: null
+    callControl: false
+    merge: true

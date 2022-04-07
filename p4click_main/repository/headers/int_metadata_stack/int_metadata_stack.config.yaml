@@ -1,0 +1,19 @@
+---
+name: int_metadata_stack
+default: ACCEPT
+parser: parse_int_metadata_stack
+fields:
+  - name: data
+    bitwidth: 8064
+    type: varbit
+transition:
+  - type: direct
+    from_state: parse_int_shim
+extract:
+  variable: true
+  operation: (bit<%s>) ((hdr.%s.%s - %s) << 5))
+  parameters:
+    - 32
+    - int_shim
+    - len
+    - 3

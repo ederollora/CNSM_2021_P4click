@@ -1,0 +1,33 @@
+---
+name: int_shim
+default: ACCEPT
+parser: parse_int_shim
+fields:
+  - name: int_type
+    bitwidth: 8
+    type: bit
+  - name: rsvd1
+    bitwidth: 8
+    type: bit
+  - name: len
+    bidwidth: 8
+    type: bit
+  - name: dscp
+    bidwidth: 6
+    type: bit
+  - name: rsvd2
+    bitwidth: 2
+    type: bit
+transition:
+  - field: dscp
+    header: ipv4
+    value_type: hex
+    value: 0x17
+    from_state: parse_tcp
+  - field: dscp
+    header: ipv4
+    value_type: hex
+    value: 0x17
+    from_state: parse_udp
+extract:
+  variable: false

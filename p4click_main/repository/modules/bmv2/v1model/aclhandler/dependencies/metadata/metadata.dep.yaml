@@ -1,0 +1,10 @@
+---
+metadata:
+  - type: struct
+    name: forwarding_meta
+    parent: local_metadata
+    fields:
+      - name: fwd_done
+        bitwidth: bool
+    statements:
+      - forwarding_meta

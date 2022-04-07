@@ -1,0 +1,8 @@
+---
+typedefs:
+  - name: macAddr_t
+    size: 48
+  - name: ip4Addr_t
+    size: 32
+  - name: port_t
+    size: 9

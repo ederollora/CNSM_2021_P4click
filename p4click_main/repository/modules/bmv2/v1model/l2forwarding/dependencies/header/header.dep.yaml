@@ -1,0 +1,30 @@
+---
+headers:
+  - type: struct
+    headerType: ethernet
+    fields:
+      - name: dstAddr
+        bitwidth: macAddr_t
+      - name: srcAddr
+        bitwidth: macAddr_t
+      - name: etherType
+        bitwidth: 16
+    statements:
+      - ethernet
+parsingStates:
+  - name: start
+    extract: null
+    onHeader: null
+    onField: null
+    transition: direct
+    default:
+      name: parse_ethernet
+  - name: parse_ethernet
+    extract: ethernet
+    onHeader: null
+    onField: null
+    transition: direct
+    default:
+      name: accept
+deparser:
+  - ethernet
